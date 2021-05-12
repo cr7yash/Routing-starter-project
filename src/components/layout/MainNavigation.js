@@ -1,15 +1,16 @@
 import { NavLink } from "react-router-dom";
+
 import classes from "./MainNavigation.module.css";
 
-export default function MainNavigation() {
+const MainNavigation = () => {
   return (
     <header className={classes.header}>
-      <div className={classes.Logo}>Great Quotes</div>
+      <div className={classes.logo}>Great Quotes</div>
       <nav className={classes.nav}>
         <ul>
           <li>
             <NavLink to="/quotes" activeClassName={classes.active}>
-              All Quotes{" "}
+              All Quotes
             </NavLink>
           </li>
           <li>
@@ -21,4 +22,6 @@ export default function MainNavigation() {
       </nav>
     </header>
   );
-}
+};
+
+export default MainNavigation;
