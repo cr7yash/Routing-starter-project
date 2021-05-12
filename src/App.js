@@ -1,37 +1,30 @@
-import { Redirect, Route, Switch, useHistory } from "react-router-dom";
-import Layout from "./components/layout/Layout";
+import { Route, Switch, Redirect } from "react-router-dom";
 
 import AllQuotes from "./Pages/AllQuotes";
-import NewQuotes from "./Pages/NewQuotes";
-import QuotesDetails from "./Pages/QuotesDetails";
+import QuoteDetail from "./Pages/QuotesDetail";
+import NewQuote from "./Pages/NewQuotes";
+import NotFound from "./Pages/NotFound";
+import Layout from "./components/layout/Layout";
 
-// const DebugRouter = ({ children }: { children: any }) => {
-//   const { location } = useHistory();
-
-//   console.log(
-//     `Route: ${location.pathname}${location.search}, State: ${JSON.stringify(
-//       location.state
-//     )}`
-//   );
-
-//   return children;
-// };
 function App() {
   return (
     <Layout>
       <Switch>
-        {/* <DebugRouter> */}
         <Route path="/" exact>
           <Redirect to="/quotes" />
         </Route>
         <Route path="/quotes" exact>
           <AllQuotes />
         </Route>
-        <Route path="/quotes/:quoteid">
-          <QuotesDetails />
+        <Route path="/quotes/:quoteId">
+          <QuoteDetail />
         </Route>
-        <Route path="/new-quote" component={NewQuotes} />
-        {/* </DebugRouter> */}
+        <Route path="/new-quote">
+          <NewQuote />
+        </Route>
+        <Route path="*">
+          <NotFound />
+        </Route>
       </Switch>
     </Layout>
   );
